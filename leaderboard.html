@@ -33,15 +33,25 @@
 <div class="section">
 	<div class="row">
 		<div class="col s4">
-			<input type="button" class="increment" value="Give 5 Points">
+			<a class="waves-effect waves-light btn increment">
+				<i class="mdi-editor-vertical-align-top"></i>
+				Give 5 Points
+			</a>
+			
 		</div>
 
 		<div class="col s4">
-			<input type="button" class="decrement" value="Take 5 Points">
+			<a class="waves-effect waves-light btn decrement">
+				<i class="mdi-editor-vertical-align-bottom"></i>
+				Take 5 Points
+			</a>
 		</div>
 
 		<div class="col s4">
-	      	<input type="button" class="remove" value="Remove Player">
+			<a class="waves-effect waves-light red btn remove">
+				<i class="mdi-action-delete"></i>
+				Remove Player
+			</a>
 	    </div>
 	</div>	
 </div>	
@@ -60,11 +70,13 @@
 		<div class="row">
 		    <form>
 				<div class="col s11">
-					 <input type="text" name="playerName">
+					 <input id="nameField" type="text" name="playerName">
 				</div>
 
 				<div class="col s1">
-					<input type="submit" value="Add Player">
+					<a class="btn-floating btn-large waves-effect waves-light addPlayer">
+						<i class="mdi-content-add"></i>
+					</a>
 				</div>
 			 </form>
 		</div>	

@@ -45,11 +45,9 @@ if(Meteor.isClient){
     });
 
     Template.addPlayerForm.events({
-      'submit form': function(evt){
+      'click .addPlayer': function(){
 
-        evt.preventDefault();
-
-        var playerNameVar = event.target.playerName.value;
+        var playerNameVar = $('#nameField').value;
 
         Meteor.call('insertPlayerData', playerNameVar);
 
