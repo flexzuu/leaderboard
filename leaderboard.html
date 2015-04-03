@@ -4,8 +4,14 @@
 <body>
 	<div class="container">
 		<h1>Leaderboard</h1>
-	    {{> leaderboard}}
-	    {{> loginButtons}}
+		{{#if currentUser}}
+		    {{> leaderboard}}
+		{{else}}
+    		<p>Melde dich an um Leaderboard zu nutzen.</p>
+		{{/if}}	
+		{{> loginButtons}}
+	    
+
 	</div>
 </body>
 
@@ -31,29 +37,27 @@
 </div>
 <div class="divider"></div>
 <div class="section">
-	<div class="row">
-		<div class="col s4">
+	
 			<a class="waves-effect waves-light btn increment">
 				<i class="mdi-editor-vertical-align-top"></i>
 				Give 5 Points
 			</a>
 			
-		</div>
+		
 
-		<div class="col s4">
+	
 			<a class="waves-effect waves-light btn decrement">
 				<i class="mdi-editor-vertical-align-bottom"></i>
 				Take 5 Points
 			</a>
-		</div>
+		
 
-		<div class="col s4">
+		
 			<a class="waves-effect waves-light red btn remove">
 				<i class="mdi-action-delete"></i>
 				Remove Player
 			</a>
-	    </div>
-	</div>	
+	    
 </div>	
 <!-- <div class="divider"></div>	
 	{{#if showSelectedPlayer}}
@@ -65,23 +69,24 @@
 </template>
 
 <template name="addPlayerForm">
-{{#if currentUser}}
+
 	<div class="section">
 		<div class="row">
 		    <form>
-				<div class="col s11">
+				<div class="col s9">
 					 <input id="nameField" type="text" name="playerName">
 				</div>
 
-				<div class="col s1">
-					<a class="btn-floating btn-large waves-effect waves-light addPlayer">
+				<div class="col s3 right-align">
+					<button class="btn-floating btn-large waves-effect waves-light blue" type="submit" name="action">
+						
 						<i class="mdi-content-add"></i>
-					</a>
+  					</button>
 				</div>
 			 </form>
 		</div>	
 	</div>	
-{{/if}}	
+
 	       
 	        
 	   
