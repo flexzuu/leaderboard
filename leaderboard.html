@@ -2,32 +2,75 @@
     <title>Leaderboard</title>
 </head>
 <body>
-    <h1>Leaderboard</h1>
-    {{> leaderboard}}
-    {{> loginButtons}}
+	<div class="container">
+		<h1>Leaderboard</h1>
+	    {{> leaderboard}}
+	    {{> loginButtons}}
+	</div>
 </body>
 
 <template name="leaderboard">
-	<ol>
-	    {{#each player}}
-	        <li class="player {{selectedClass}}">{{name}}: {{score}}</li>
-	    {{/each}}
-	</ol>
-	<input type="button" class="increment" value="Give 5 Points">
-	<input type="button" class="decrement" value="Take 5 Points">
-	<input type="button" class="remove" value="Remove Player">
+<div class="section">
+	<table>
+    	<thead>
+        	<tr>
+            	<th data-field="name">Name</th>
+              	<th data-field="score">Score</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        	{{#each player}}
+          	<tr>
+          		<td class="player {{selectedClass}}">{{name}}</td>
+        		<td class="player {{selectedClass}}">{{score}}</td>
+          	</tr>
+          	{{/each}}
+        </tbody>
+      </table>
+</div>
+<div class="divider"></div>
+<div class="section">
+	<div class="row">
+		<div class="col s4">
+			<input type="button" class="increment" value="Give 5 Points">
+		</div>
+
+		<div class="col s4">
+			<input type="button" class="decrement" value="Take 5 Points">
+		</div>
+
+		<div class="col s4">
+	      	<input type="button" class="remove" value="Remove Player">
+	    </div>
+	</div>	
+</div>	
+<!-- <div class="divider"></div>	
 	{{#if showSelectedPlayer}}
-	<h2>Selected Player: {{showSelectedPlayer.name}}</h2>
-	{{/if}}
-	{{> addPlayerForm}}
+	<p>Selected Player: {{showSelectedPlayer.name}}</p>
+	{{/if}} -->
+
+	{{> addPlayerForm}} 
 	
 </template>
 
 <template name="addPlayerForm">
- 	{{#if currentUser}}
-	    <form>
-	        <input type="text" name="playerName">
-	        <input type="submit" value="Add Player">
-	    </form>
-    {{/if}}
+{{#if currentUser}}
+	<div class="section">
+		<div class="row">
+		    <form>
+				<div class="col s11">
+					 <input type="text" name="playerName">
+				</div>
+
+				<div class="col s1">
+					<input type="submit" value="Add Player">
+				</div>
+			 </form>
+		</div>	
+	</div>	
+{{/if}}	
+	       
+	        
+	   
 </template>
