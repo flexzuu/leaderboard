@@ -4,8 +4,30 @@
 <body>
     <h1>Leaderboard</h1>
     {{> leaderboard}}
+    {{> loginButtons}}
 </body>
 
 <template name="leaderboard">
-	{{player}}
+	<ol>
+	    {{#each player}}
+	        <li class="player {{selectedClass}}">{{name}}: {{score}}</li>
+	    {{/each}}
+	</ol>
+	<input type="button" class="increment" value="Give 5 Points">
+	<input type="button" class="decrement" value="Take 5 Points">
+	<input type="button" class="remove" value="Remove Player">
+	{{#if showSelectedPlayer}}
+	<h2>Selected Player: {{showSelectedPlayer.name}}</h2>
+	{{/if}}
+	{{> addPlayerForm}}
+	
+</template>
+
+<template name="addPlayerForm">
+ 	{{#if currentUser}}
+	    <form>
+	        <input type="text" name="playerName">
+	        <input type="submit" value="Add Player">
+	    </form>
+    {{/if}}
 </template>
